@@ -1,0 +1,80 @@
+<!-- <div class="container">
+  <div class="row d-flex justify-content-md-center">
+    <hr class="mt-4" />
+    <div class="col-6">
+      <div class="mb-4">
+        <label for="userTextArea" class="form-label">قم بإدخال النص</label>
+        <textarea
+          class="form-control mb-3"
+          id="userTextArea"
+          rows="3"
+          [(ngModel)]="text"
+        ></textarea>
+        <button type="button" class="btn btn-primary" (click)="readText()">
+          تحليل النص
+        </button>
+      </div>
+    </div>
+    <hr />
+
+    <div class="row text-center">
+      <div class="col-3">الكلمة</div>
+      <div class="col-3">الجذر</div>
+      <div class="col-3">الوزن</div>
+      <div class="col-3">الدلالة الصرفية</div>
+    </div>
+
+    <div class="col-3 text-center">
+      <ul class="list-group" *ngFor="let word of words">
+        <li class="list-group-item">{{ word }}</li>
+      </ul>
+    </div>
+    <div class="col-3 text-center">
+      <ul class="list-group" *ngFor="let word of result">
+        <li class="list-group-item">{{ word }}</li>
+      </ul>
+    </div>
+    <div class="col-3 text-center">
+      <ul class="list-group" *ngFor="let word of weight">
+        <li class="list-group-item">{{ word }}</li>
+      </ul>
+    </div>
+    <div class="col-3 text-center">
+      <ul class="list-group" *ngFor="let word of dalaleh">
+        <li class="list-group-item">{{ word === ' ' ? '_' : word }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+ -->
+<div style="text-align: center; margin-top: 200px">
+  <button
+    (click)="initiateRecording()"
+    class="btn btn-primary"
+    *ngIf="!recording"
+    style="
+      cursor: pointer;
+      background-color: green;
+      color: white;
+      font-size: 40px;
+    "
+  >
+    Start Recording
+  </button>
+  <button
+    (click)="stopRecording()"
+    class="btn btn-danger"
+    *ngIf="recording"
+    style="
+      cursor: pointer;
+      background-color: red;
+      color: white;
+      font-size: 40px;
+    "
+  >
+    Stop Recording
+  </button>
+  <audio controls="" *ngIf="url">
+    <source [src]="sanitize(url)" type="audio/wav" />
+  </audio>
+</div>
